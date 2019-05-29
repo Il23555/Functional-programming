@@ -6,7 +6,8 @@ let rec pow = function
 
 // 17.2
 let rec isIthChar = function
-   |(s:string,n,c) -> s.[n] = c
+   |(s:string,n,c) when n < s.Length -> s.[n] = c
+   |(s,n,c) -> false
 
 // 17.3
 let rec count = function

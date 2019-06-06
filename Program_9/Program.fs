@@ -1,5 +1,5 @@
 ﻿// 23.4.1
-let hhh (a,b,c) = 
+let change (a,b,c) = 
     let sum = a * 240 + b * 20 + c
     let g = sum / 240
     let s = (sum - g * 240) / 20
@@ -9,13 +9,12 @@ let hhh (a,b,c) =
 let (.+.) x y =
     let (a,b,c) = x 
     let (a1,b1,c1) = y 
-    (a + a1, b + b1, c + c1)
+    change(a + a1, b + b1, c + c1)
 
 let (.-.) x y = 
     let (a,b,c) = x
     let (a1,b1,c1) =y
-    hhh(a - a1, b - b1, c - c1)
-
+    change(a - a1, b - b1, c - c1)
 
 // 23.4.2
 let (.+) x y = 

@@ -1,9 +1,9 @@
 ﻿// 23.4.1
 let change (a,b,c) = 
-    let sum = a * 240 + b * 20 + c
+    let sum = a * 240 + b * 12 + c
     let g = sum / 240
-    let s = (sum - g * 240) / 20
-    let c = sum - g * 240 - s * 20
+    let s = (sum - g * 240) / 12
+    let c = sum - g * 240 - s * 12
     (g,s,c)
 
 let (.+.) x y =

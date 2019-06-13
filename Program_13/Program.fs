@@ -21,6 +21,7 @@ let rec multiplicity x xs =
 // 39.4
 let rec rmodd2 = function
     |head :: (head2 :: tail) -> head :: rmodd2 tail
+    |[head] -> [head]
     |_ -> []
 
 let rec split = fun xs ->(rmodd2 xs,rmodd xs)
@@ -31,3 +32,4 @@ let rec zip (xs1,xs2) =
      else match (xs1, xs2) with
         |([],[]) ->  []
         |(head1::tail1,head2::tail2) -> (head1,head2) :: zip(tail1,tail2)
+

@@ -1,7 +1,7 @@
 ﻿// 39.1
 let rec rmodd = function
-    |[] -> []
     |head :: (head2 :: tail) -> head2 :: rmodd tail
+    |_ -> []
 
 // 39.2
 let rec del_even = function
@@ -20,14 +20,10 @@ let rec multiplicity x xs =
  
 // 39.4
 let rec rmodd2 = function
-    |[] -> []
     |head :: (head2 :: tail) -> head :: rmodd2 tail
+    |_ -> []
 
-let rec split xs =
-    let list1 = rmodd xs
-    let list2 = rmodd2 xs
-    (list1,list2)
-    
+let rec split = fun xs ->(rmodd2 xs,rmodd xs)
 
 // 39.5
 let rec zip (xs1,xs2) = 

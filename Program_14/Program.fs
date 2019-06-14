@@ -1,9 +1,9 @@
 ﻿// 40.1
 let rec summa (xs,p,s) = 
     match xs with
-        |head :: tail when p head -> summa(tail,p,s + head)
-        |head :: tail -> summa(tail,p,s)
-        |_ -> s
+    |head :: tail when p head -> summa(tail,p,s + head)
+    |head :: tail -> summa(tail,p,s)
+    |_ -> s
 
 let rec sum (p, xs) = summa(xs,p,0)
 
@@ -27,30 +27,30 @@ let rec insert (xs, n) =
 
 // 40.2.3
 let rec intersect1 (xs1,xs2,list) =
-        match (xs1,xs2) with
-        |(head1 :: tail1, head2 :: tail2) when head1 = head2 -> head1 :: intersect1 (tail1, tail2, list)
-        |(head1 :: tail1, head2 :: tail2) when head1 < head2 -> intersect1 (tail1, head2 :: tail2, list)
-        |(head1 :: tail1, head2 :: tail2) when head1 > head2 -> intersect1 (head1 :: tail1, tail2, list)
-        |_ -> list
+    match (xs1,xs2) with
+    |(head1 :: tail1, head2 :: tail2) when head1 = head2 -> head1 :: intersect1 (tail1, tail2, list)
+    |(head1 :: tail1, head2 :: tail2) when head1 < head2 -> intersect1 (tail1, head2 :: tail2, list)
+    |(head1 :: tail1, head2 :: tail2) when head1 > head2 -> intersect1 (head1 :: tail1, tail2, list)
+    |_ -> list
 
 let rec intersect (xs1, xs2) = intersect1(xs1,xs2,[])
 
 // 40.2.4
 let rec plus1 (xs1,xs2,list)=
      match (xs1,xs2) with
-        |(head1 :: tail1, head2 :: tail2) when head1 = head2 -> head1 :: plus1 (tail1, tail2, list)
-        |(head1 :: tail1, head2 :: tail2) when head1 < head2 -> head1 :: plus1 (tail1, head2 :: tail2, list)
-        |(head1 :: tail1, head2 :: tail2) when head1 > head2 -> head2 :: plus1 (head1 :: tail1, tail2, list)
-        |_ -> list
+     |(head1 :: tail1, head2 :: tail2) when head1 = head2 -> head1 :: plus1 (tail1, tail2, list)
+     |(head1 :: tail1, head2 :: tail2) when head1 < head2 -> head1 :: plus1 (tail1, head2 :: tail2, list)
+     |(head1 :: tail1, head2 :: tail2) when head1 > head2 -> head2 :: plus1 (head1 :: tail1, tail2, list)
+     |_ -> list
 
 let rec plus (xs1, xs2) = plus1(xs1,xs2,[])
 
 // 40.2.5
 let rec minus_1 (xs1,xs2,list) =
      match (xs1,xs2) with
-        |(head1 :: tail1, head2 :: tail2) when head1 = head2 -> minus_1 (tail1, tail2, list)
-        |(head1 :: tail1, head2 :: tail2) when head1 < head2 -> head1 :: minus_1 (tail1, head2 :: tail2, list)
-        |_ -> list @ xs1
+     |(head1 :: tail1, head2 :: tail2) when head1 = head2 -> minus_1 (tail1, tail2, list)
+     |(head1 :: tail1, head2 :: tail2) when head1 < head2 -> head1 :: minus_1 (tail1, head2 :: tail2, list)
+     |_ -> list @ xs1
 
 let rec minus (xs1, xs2) = minus_1(xs1,intersect(xs1,xs2),[])
 

@@ -54,7 +54,7 @@ let rec smallest = fun xs ->
         match xs with
         | head :: tail when head < m -> min(tail,head) 
         | _ :: tail -> min(tail,m)
-        | _ -> Some (m)
+        | _ -> Some(m)
     match xs with
     | [] -> None
     | head :: _ -> min(xs,head)
@@ -77,7 +77,3 @@ let rec revrev =
         | head :: tail -> List.rev head :: rev tail
         | _ -> []
     fun xs -> rev (List.rev xs)
-
-let l = [4;5;2;9;10]
-printfn "%s" (string (smallest (l)))
-printfn "%s" (string (sort (l)))

@@ -54,7 +54,7 @@ let rec smallest = fun xs ->
         match xs with
         | head :: tail when head < m -> min(tail,head) 
         | _ :: tail -> min(tail,m)
-        | _ -> Some(m)
+        | _ -> Some (m)
     match xs with
     | [] -> None
     | head :: _ -> min(xs,head)

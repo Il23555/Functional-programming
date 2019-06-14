@@ -50,13 +50,14 @@ let rec minus (xs1, xs2) =
 
 // 40.3.1
 let rec smallest = fun xs -> 
-    let rec min (xs,m) =
+    let rec min (xs :int list, m) =
         match xs with
         | head :: tail when head < m -> min(tail,head) 
         | _ :: tail -> min(tail,m)
-        | _ -> m
+        | _ -> Some (m)
     match xs with
-    |head :: _ -> min(xs,head)
+    | [] -> None
+    | head :: _ -> min(xs,head)
 
 // 40.3.2
 let rec delete (n, xs) = 
@@ -68,7 +69,7 @@ let rec delete (n, xs) =
 // 40.3.3
 let rec sort = function
     | [] -> []
-    | xs -> smallest xs :: sort(delete(smallest xs,xs))
+    | xs -> Option.get(smallest xs) :: sort(delete(Option.get(smallest xs),xs))
 
 // 40.4
 let rec revrev = 
@@ -76,3 +77,7 @@ let rec revrev =
         | head :: tail -> List.rev head :: rev tail
         | _ -> []
     fun xs -> rev (List.rev xs)
+
+let l = [4;5;2;9;10]
+printfn "%s" (string (smallest (l)))
+printfn "%s" (string (sort (l)))

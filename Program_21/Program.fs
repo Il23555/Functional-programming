@@ -1,19 +1,17 @@
 ﻿// 50.2.1
-let rec fac n res = seq {
-        yield res
-        yield! fac (n + 1) (res*n) }
-
 let fac_seq = seq {
     yield 1
-    yield! seq (fac 2 1)}
+    let rec f n res = seq {
+        yield res
+        yield! f (n + 1)(res * n) }
+    yield! seq (f 2 1)}
     
 // 50.2.2
-let rec f i= seq {
-        yield (0-i)
-        yield i
-        yield! f(i + 1)}
-
 let seq_seq = seq {
     yield 0
+    let rec f i = seq {
+        yield (0-i)
+        yield i
+        yield! f (i + 1) }
     yield! f 1}
 

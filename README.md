@@ -63,4 +63,5 @@
 
 24. [Общая форма генерации последовательностей](https://github.com/Il23555/Functional-programming/blob/master/Program_21/Program.fs)
 
-25. Ленивые вычисления
+25. [Ленивые вычисления](https://github.com/Il23555/Functional-programming/blob/master/Program_22/Program.fs)
+
